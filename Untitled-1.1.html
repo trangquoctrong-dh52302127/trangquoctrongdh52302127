@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALBET - Giày Thể Thao Chính Hãng</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Header */
+      header {
+        background-color: white;
+        padding: 1.2rem 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #1a1a1a;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .logo span {
+        color: #ffb800;
+        font-size: 2rem;
+      }
+
+      nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      nav a {
+        color: #555;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: #2563eb;
+      }
+
+      .header-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .btn-order {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        padding: 0.6rem 1.5rem;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+      }
+
+      .btn-order:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+      }
+
+      .icon-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: #555;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+        padding: 4rem 0;
+        margin-top: 2rem;
+        overflow: hidden; /* Tránh bóng của hình lồi ra ngoài */
+      }
+
+      .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero-badge {
+        background: #fff3e0;
+        color: #f97316;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .hero-text h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+        line-height: 1.2;
+      }
+
+      .hero-text h1 .highlight {
+        color: #2563eb;
+        display: block;
+      }
+
+      .hero-text p {
+        font-size: 15px;
+        color: #666;
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        padding: 0.9rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: #2563eb;
+        padding: 0.9rem 2rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+
+      .btn-secondary:hover {
+        border-color: #2563eb;
+        background: #eff6ff;
+      }
+
+      /* KHU VỰC CHỈNH SỬA HÌNH ẢNH NGHIÊNG 3D */
+      .hero-image {
+        flex: 1.2; /* Tăng tỉ lệ xíu cho hình rộng ra */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        perspective: 1200px; /* Chìa khóa tạo độ sâu 3D */
+      }
+
+      .hero-image img {
+        max-width: 600px; /* Cho hình to ra một chút */
+        width: 100%;
+        border-radius: 12px; /* Bo góc ảnh */
+        /* Tạo khối 3D nghiêng giống hệt hình bạn gửi */
+        transform: rotateY(-24deg) rotateX(12deg) rotateZ(-3deg);
+        box-shadow: 25px 30px 50px rgba(0, 0, 0, 0.2); /* Đổ bóng xa tạo cảm giác nổi */
+        transition: transform 0.5s ease;
+      }
+
+      .hero-image img:hover {
+        /* Hiệu ứng trồi lên khi rê chuột vào */
+        transform: rotateY(-15deg) rotateX(5deg) rotateZ(0deg) scale(1.03);
+      }
+
+      /* Featured Products */
+      .featured-products {
+        padding: 5rem 0;
+        background-color: #fafafa;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-header h2 .highlight {
+        color: #2563eb;
+      }
+
+      .section-header p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5rem;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s;
+        border: 1px solid #e5e7eb;
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        color: white;
+        z-index: 10;
+      }
+
+      .badge-bestseller {
+        background: #2563eb;
+      }
+      .badge-sale {
+        background: #f97316;
+      }
+      .badge-new {
+        background: #10b981;
+      }
+
+      .product-image {
+        width: 100%;
+        aspect-ratio: 1;
+        background-color: #f9fafb;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .product-image img {
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.15);
+      }
+
+      .product-name {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 14px;
+        color: #1a1a1a;
+      }
+
+      .product-price {
+        color: #1a1a1a;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 15px;
+      }
+
+      .product-price .old-price {
+        color: #999;
+        text-decoration: line-through;
+        font-size: 13px;
+        margin-left: 0.5rem;
+      }
+
+      .btn-add-cart {
+        width: 100%;
+        background: #2563eb;
+        color: white;
+        padding: 0.6rem;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 13px;
+        transition: all 0.3s;
+      }
+
+      .btn-add-cart:hover {
+        background: #1d4ed8;
+      }
+
+      /* Why Choose Us */
+      .why-choose {
+        padding: 5rem 0;
+        background-color: white;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+      }
+
+      .feature-card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        color: #1a1a1a;
+      }
+
+      .feature-card p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 5rem 0;
+        background-color: #fafafa;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid #e5e7eb;
+      }
+
+      .stars {
+        color: #fbbf24;
+        margin-bottom: 1rem;
+        font-size: 14px;
+      }
+
+      .testimonial-text {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .author-avatar {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .author-name {
+        font-weight: 600;
+        font-size: 14px;
+        color: #1a1a1a;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 5rem 0;
+        background: white;
+      }
+
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-card {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 1.8rem;
+      }
+
+      .contact-card h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+      }
+
+      .contact-card p {
+        font-size: 13px;
+        color: #666;
+      }
+
+      .contact-btn-wrapper {
+        text-align: center;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1a1a1a;
+        color: #ccc;
+        padding: 3rem 0 1.5rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo span {
+        color: #ffb800;
+      }
+
+      .footer-desc {
+        font-size: 13px;
+        color: #999;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 0.8rem;
+      }
+
+      .social-icon {
+        width: 35px;
+        height: 35px;
+        background: #333;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: #ccc;
+      }
+
+      .social-icon:hover {
+        background: #2563eb;
+        color: white;
+      }
+
+      .footer-section h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 1.2rem;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 0.7rem;
+      }
+
+      .footer-section ul li a {
+        color: #999;
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.3s;
+      }
+
+      .footer-section ul li a:hover {
+        color: #2563eb;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #333;
+        padding-top: 1.5rem;
+        text-align: center;
+        font-size: 13px;
+        color: #666;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .products-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+
+        .hero-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-text h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-image {
+          margin-top: 2rem;
+        }
+
+        /* Trả lại ảnh thẳng trên điện thoại để không bị tràn màn hình */
+        .hero-image img {
+          max-width: 350px;
+          transform: none;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .hero-image img:hover {
+          transform: scale(1.02);
+        }
+
+        .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-methods {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">ALBET<span>⚡</span></div>
+
+          <nav>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Ưu đãi</a>
+            <a href="#">Bán chạy</a>
+            <a href="#">Liên hệ</a>
+          </nav>
+
+          <div class="header-actions">
+            <button class="btn-order">📦 Đặt hàng</button>
+            <button class="icon-btn">🔍</button>
+            <button class="icon-btn">☰</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-badge">🔥Giảm 30% - Chỉ hôm nay</div>
+            <h1>
+              Bước đi
+              <span class="highlight">Không giới hạn</span>
+            </h1>
+            <p>
+              Mỗi bước chân là một hành trình mới. Giày của chúng tôi được thiết
+              kế để đồng hành cùng bạn trên mọi nẻo đường, từ thành phố đến núi
+              rừng, từ phòng gym đến sân chơi thể thao.
+            </p>
+            <div class="hero-buttons">
+              <button class="btn-primary">Mua ngay 🛒</button>
+              <button class="btn-secondary">Khám phá thêm</button>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img
+              src="https://dungcuthethaobinhduong.net/upload/filemanager/B%C3%B3ng%20Chuy%E1%BB%81n/GI%C3%80Y%20B%C3%93NG%20CHUY%E1%BB%80N/GI%C3%80Y%20BEYONO/Gi%C3%A0y%20b%C3%B3ng%20chuy%E1%BB%81n%20Beyono%20Limit%20V3%20(DD%20WEB)/giay-bong-chuyen-beyono-limi-v3-trang-xanh-1.jpg"
+              alt="Giày thể thao"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-products">
+      <div class="container">
+        <div class="section-header">
+          <h2>Bộ sưu tập <span class="highlight">nổi bật</span></h2>
+          <p>
+            Lựa chọn hàng đầu từ bộ sưu tập mới nhất - Xu hướng và chất lượng
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-card">
+            <span class="product-badge badge-bestseller">Bán chạy</span>
+            <div class="product-image">
+              <img
+                src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/29b9c079-925f-4838-b401-be480afe5ede/W+NIKE+AM+DN8.png"
+                alt="Broboi Velocity"
+              />
+            </div>
+            <h3 class="product-name">Nike Air Max Dn8</h3>
+            <p class="product-price">1.500.000₫</p>
+            <button class="btn-add-cart">💼 Mua ngay</button>
+          </div>
+
+          <div class="product-card">
+            <span class="product-badge badge-sale">Hot</span>
+            <div class="product-image">
+              <img
+                src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/4295c8c8-9c01-4823-b473-94d14418bec3/NIKE+CORTEZ+LTR+SE.png"
+                alt="Broboi Blaze"
+              />
+            </div>
+            <h3 class="product-name">Nike Cortez Leather SE</h3>
+            <p class="product-price">
+              2.300.000₫ <span class="old-price">2.800.000₫</span>
+            </p>
+            <button class="btn-add-cart">💼 Mua ngay</button>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8a95e171-e6e5-4a03-ace2-c60249dcba4e/NIKE+VOMERO+18+GTX.png"
+                alt="Broboi Cloud"
+              />
+            </div>
+            <h3 class="product-name">Nike Vomero 18 GORE</h3>
+            <p class="product-price">1.600.000₫</p>
+            <button class="btn-add-cart">💼 Mua ngay</button>
+          </div>
+
+          <div class="product-card">
+            <span class="product-badge badge-new">Mới</span>
+            <div class="product-image">
+              <img
+                src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/24261ccf-b561-44ed-8d8f-bea16516dcf3/WMNS+NIKE+FIELD+GENERAL.png"
+                alt="Broboi Apex"
+              />
+            </div>
+            <h3 class="product-name">Nike Field General</h3>
+            <p class="product-price">2.900.000₫</p>
+            <button class="btn-add-cart">💼 Mua ngay</button>
+          </div>
+
+          <div class="product-card">
+            <span class="product-badge badge-new">Mới</span>
+            <div class="product-image">
+              <img
+                src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0c069dd7-2c5b-4bb4-8c1c-18c8339d2629/W+AIR+FORCE+1+%2707+VINTAGE.png"
+                alt="Air Jordan Mid Top"
+              />
+            </div>
+            <h3 class="product-name">Nike Air Force 1</h3>
+            <p class="product-price">2.590.000₫</p>
+            <button class="btn-add-cart">💼 Mua ngay</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-choose">
+      <div class="container">
+        <div class="section-header">
+          <h2>Tại sao chọn <span class="highlight">ALBET</span>?</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Siêu rẻ</h3>
+            <p>Giá rẻ - chất lượng cao, đảm bảo giá tốt nhất thị trường</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📞</div>
+            <h3>Dịch vụ cao</h3>
+            <p>Hỗ trợ nhiệt tình trước, trong và sau khi mua hàng của bạn</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⭐</div>
+            <h3>Thương hiệu</h3>
+            <p>Uy tín được xây dựng với cộng đồng yêu thích sản phẩm</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Bền bỉ</h3>
+            <p>Sử dụng chất liệu cao cấp, sản xuất kỹ thuật hiện đại</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>Khách hàng <span class="highlight">nói gì</span>?</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              Mỗi bước chạy đều nhẹ nhàng. Giày đúng như lời quảng cáo, thoải
+              mái và chất lượng vượt trội!
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">HT</div>
+              <div class="author-name">Hoàng Tuấn</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              Thiết kế đẹp, hợp xu hướng. Mặc đi rất êm chân, tôi đã mua thêm 2
+              đôi cho bạn bè!
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AL</div>
+              <div class="author-name">Ánh Linh</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              Chất lượng tuyệt vời, giá cả hợp lý. Đội ngũ tư vấn nhiệt tình,
+              giao hàng nhanh!
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">QH</div>
+              <div class="author-name">Quốc Huy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Liên hệ <span class="highlight">với chúng tôi</span></h2>
+          <p>Hãy để chúng tôi - Hỗ trợ bạn trong mọi thắc mắc. Chỉ cần</p>
+        </div>
+
+        <div class="contact-methods">
+          <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h3>Hotline</h3>
+            <p>098.765.4321</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Email</h3>
+            <p>contact@albet.com</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Showroom</h3>
+            <p>39 Nguyễn Huệ, Q.1, TP.HCM</p>
+          </div>
+        </div>
+
+        <div class="contact-btn-wrapper">
+          <button class="btn-primary">📧 Liên hệ ngay</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <div class="footer-logo">ALBET<span>⚡</span></div>
+            <p class="footer-desc">
+              Cửa hàng giày thể thao uy tín hàng đầu Việt Nam. Chúng tôi cung
+              cấp các sản phẩm giày chính hãng với giá tốt nhất thị trường.
+            </p>
+            <div class="social-icons">
+              <div class="social-icon">f</div>
+              <div class="social-icon">📷</div>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Về chúng tôi</h3>
+            <ul>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Tin tức</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Đối tác</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Chính sách</h3>
+            <ul>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách vận chuyển</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Hỗ trợ</h3>
+            <ul>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Hướng dẫn thanh toán</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+              <li><a href="#">Liên hệ</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">© 2025 ALBET Corporation</div>
+      </div>
+    </footer>
+  </body>
+</html>
